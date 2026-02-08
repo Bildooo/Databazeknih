@@ -11,15 +11,9 @@ function addBook() {
 
   if (!nazev || !autor || !rok) return alert("Vyplň všechna pole");
 
-  books.push({ nazev, autor, rok: Number(rok) });
+  books.push({ nazev, autor, rok });
   save();
   clearForm();
-  render(books);
-}
-
-function deleteBook(index) {
-  books.splice(index, 1);
-  save();
   render(books);
 }
 
@@ -27,6 +21,14 @@ function clearForm() {
   nazevInput.value = "";
   autorInput.value = "";
   rokInput.value = "";
+}
+
+function confirmDelete(index) {
+  if (confirm("Opravdu chcete tuto knihu smazat?")) {
+    books.splice(index, 1);
+    save();
+    render(books);
+  }
 }
 
 function render(list) {
@@ -38,9 +40,10 @@ function render(list) {
     li.innerHTML = `
       <div class="book-info">
         <strong>${b.nazev}</strong><br>
-        ${b.autor} (${b.rok})
+        Autor: ${b.autor}<br>
+        Rok: ${b.rok}
       </div>
-      <button class="delete" onclick="deleteBook(${i})">✕</button>
+      <button class="delete" onclick="confirmDelete(${i})">✕</button>
     `;
     ul.appendChild(li);
   });
@@ -59,14 +62,9 @@ function searchBooks() {
 function sortBooks() {
   const type = sort.value;
 
-  if (type === "nazev")
-    books.sort((a,b) => a.nazev.localeCompare(b.nazev));
-
-  if (type === "autor")
-    books.sort((a,b) => a.autor.localeCompare(b.autor));
-
-  if (type === "rok")
-    books.sort((a,b) => a.rok - b.rok);
+  if (type === "nazev") books.sort((a,b) => a.nazev.localeCompare(b.nazev));
+  if (type === "autor") books.sort((a,b) => a.autor.localeCompare(b.autor));
+  if (type === "rok") books.sort((a,b) => a.rok - b.rok);
 
   save();
   render(books);

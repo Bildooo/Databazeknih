@@ -1,45 +1,91 @@
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
-  background:#f2f2f2;
-  margin:0;
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .app {
-  max-width:420px;
-  margin:auto;
-  background:white;
-  padding:15px;
-  min-height:100vh;
+  max-width: 420px;
+  margin: auto;
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 16px;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 0 20px rgba(0,0,0,.25);
 }
 
-input, select, button {
-  width:100%;
-  padding:10px;
-  margin:6px 0;
+h1 {
+  text-align: center;
+  color: #4b2fbf;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #667eea;
 }
 
 button {
-  background:#4CAF50;
-  color:white;
-  border:none;
-  font-size:16px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+button:hover { opacity: .9; }
+
+ul { padding: 0; margin-top: 12px; }
+
 li {
-  border-bottom:1px solid #ddd;
-  padding:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  list-style: none;
+  background: #f6f7ff;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px; /* odsazení mezi textem a tlačítkem */
 }
 
 .book-info {
-  font-size:14px;
+  font-size: 14px;
+  color: #333;
+  flex: 1; /* zabere zbylou šířku řádku */
 }
 
+.book-info strong { color: #4b2fbf; }
+
 .delete {
-  background:#e53935;
-  color:white;
-  border:none;
-  padding:6px 10px;
+  background: #ff5c5c;
+  border: none;
+  color: white;
+  width: 24px;      /* pevná šířka */
+  height: 24px;     /* pevná výška */
+  border-radius: 4px; /* mírně zaoblený roh */
+  font-size: 16px;  /* velikost křížku */
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;       /* odstraní padding, aby byl čtverec přesný */
 }
+
