@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Databáze knih</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h1>📚 Moje knihy</h1>
+
+  <div class="form">
+    <input id="nazev" placeholder="Název knihy">
+    <input id="autor" placeholder="Autor">
+    <input id="rok" type="number" placeholder="Rok vydání">
+    <button onclick="addBook()">Přidat knihu</button>
+  </div>
+
+  <input id="search" placeholder="Vyhledat..." oninput="searchBooks()">
+
+  <select id="sort" onchange="sortBooks()">
+    <option value="">— řazení —</option>
+    <option value="nazev">Název</option>
+    <option value="autor">Autor</option>
+    <option value="rok">Rok</option>
+  </select>
+
+  <ul id="list"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
